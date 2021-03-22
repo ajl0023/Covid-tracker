@@ -27,7 +27,11 @@ const MapChart = ({
   };
   return (
     <div className="map-container">
-      <ComposableMap xx="" data-tip="" projectionConfig={{ scale: 147 }}>
+      <ComposableMap
+        viewBox="0 100 800 400"
+        data-tip=""
+        projectionConfig={{ scale: 147 }}
+      >
         <Graticule stroke="#dadce0" />
         <Geographies geography={geoUrl}>
           {({ geographies }) => {

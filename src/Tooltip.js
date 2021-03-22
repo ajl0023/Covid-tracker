@@ -4,11 +4,13 @@ const Tooltip = (props) => {
   const [, setCurrentEvent] = useState(false);
   const [, setCurrentTarget] = useState(false);
   const [, setShow] = useState(false);
-  const [place, setPlace] = useState("");
+  const [, setPlace] = useState("");
   const [, setType] = useState("");
   const [originTool, setOriginoriginTool] = useState("");
   useEffect(() => {
-    bindListener();
+    if (tooltipRef) {
+      bindListener();
+    }
     return () => {
       unbindListener();
     };
@@ -33,10 +35,10 @@ const Tooltip = (props) => {
     const desiredPlace = "top";
     const originTooltip = e.currentTarget.getAttribute("data-tip");
     const target = e.currentTarget;
-    const place = desiredPlace;
+
     const updateState = function updateState() {
       setType("dark");
-      setPlace(place);
+
       setCurrentTarget((state) => (state = target));
       setOriginoriginTool(originTooltip);
     };
@@ -73,7 +75,7 @@ const Tooltip = (props) => {
           obj.currentEvent,
           obj.currentTarget,
           node,
-          place
+          "top"
         );
         node.style.left = result.position.left + "px";
         node.style.top = result.position.top - 20 + "px";

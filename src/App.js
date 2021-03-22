@@ -9,7 +9,6 @@ import Graph from "./Graph";
 import MapChart from "./MapChart";
 import Tooltip from "./Tooltip";
 import Tracker from "./Tracker";
-
 const App = () => {
   const [content, setContent] = useState("");
   const [data, setData] = useState([]);
@@ -21,7 +20,6 @@ const App = () => {
     iso_a2: "",
     iso_a3: "",
   });
-
   const [timeData, setTimeData] = useState([]);
   useEffect(() => {
     readRemoteFile(
@@ -48,7 +46,6 @@ const App = () => {
       setCountryData(res.data["OWID_WRL"]);
     });
   }, []);
-
   let colorScale;
   if (rawData.length > 0) {
     colorScale = scaleQuantile()
@@ -65,7 +62,6 @@ const App = () => {
         "#154360",
       ]);
   }
-
   const getCountry = (newCountry) => {
     let dataCheck = data[newCountry];
     if (dataCheck) {
@@ -114,7 +110,6 @@ const App = () => {
         </div>
         <div className="map-wrapper">
           <Tracker getCountry={getCountry} countryData={countryData} />
-
           <MapChart
             setShowCard={setShowCard}
             colorScale={colorScale}
@@ -130,5 +125,4 @@ const App = () => {
     </>
   );
 };
-
 export default App;

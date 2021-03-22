@@ -11,14 +11,13 @@ const Graph = (props) => {
       const margin = { top: 0, bottom: 20, left: 40, right: 20 };
       const width = 600 - margin.left - margin.right - strokeWidth * 2;
       const height = 300 - margin.top - margin.bottom;
-      const heightValue = node.current.getBoundingClientRect().height;
       const widthValue = 600;
       let svg = d3
         .select(node.current)
         .append("svg")
         .attr("display", "block")
         .attr("preserveAspectRatio", "none")
-        .attr("viewBox", `0 0 ${widthValue} ${heightValue}`);
+        .attr("viewBox", `0 0 ${widthValue} ${300}`);
       const chart = svg
         .append("g")
         .attr("transform", `translate(${margin.left},0)`);
@@ -62,6 +61,7 @@ const Graph = (props) => {
       let textDate = d3
         .select(counterRef.current)
         .append("p")
+        .text(d3.timeFormat("%B,%d")(props.formattedData[0].date))
         .attr("class", "graph-counter")
         .attr("x", "50%")
         .attr("y", "50%")
@@ -72,6 +72,7 @@ const Graph = (props) => {
       let textValue = d3
         .select(counterRef.current)
         .append("p")
+        .text(props.formattedData[0].value)
         .attr("class", "graph-counter")
         .attr("fill", "black")
         .attr("font-size", "12px")

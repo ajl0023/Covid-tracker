@@ -1,4 +1,5 @@
 import * as d3 from "d3";
+import CountUp from "react-countup";
 import React, { useEffect, useState } from "react";
 import { ReactComponent as Cancel } from "./cancelIcon.svg";
 const Card = ({
@@ -11,6 +12,19 @@ const Card = ({
   render,
 }) => {
   const [formattedData, setformattedData] = useState({});
+  useEffect(() => {
+    const root = document.getElementById("root");
+    const card = document.getElementById("card");
+    const handleRoot = (e) => {
+      if (!card.contains(e.target)) {
+        setShowCard(false);
+      }
+    };
+    root.addEventListener("click", handleRoot);
+    return () => {
+      root.removeEventListener("click", handleRoot);
+    };
+  }, []);
   useEffect(() => {
     if (timeData.length > 0 && countryData) {
       let test = timeData.reduce((acc, country) => {
@@ -32,7 +46,7 @@ const Card = ({
     return <div></div>;
   }
   return (
-    <div className={showCard ? "info-container" : "inactive"}>
+    <div id="card" className={showCard ? "info-container" : "inactive"}>
       <div className="info-title-container">
         <header className="card-title">{countryData.location}</header>
         <img
@@ -52,19 +66,40 @@ const Card = ({
       <div className="footer-container">
         <li className="footer-item">
           <h4 className="footer-item-desc">
-            {new Intl.NumberFormat().format(countryData.new_tests)}
+            {countryData.new_tests ? (
+              <CountUp
+                separator=","
+                format="d"
+                duration="1"
+                end={countryData.new_tests}
+              />
+            ) : null}
           </h4>
           <p className="footer-item-title">new tests</p>
         </li>
         <li className="footer-item">
           <h4 className="footer-item-desc">
-            {new Intl.NumberFormat().format(countryData.total_cases)}
+            {countryData.total_cases ? (
+              <CountUp
+                separator=","
+                format="d"
+                duration="1"
+                end={countryData.total_cases}
+              />
+            ) : null}
           </h4>
           <p className="footer-item-title">cases</p>
         </li>
         <li className="footer-item">
           <h4 className="footer-item-desc">
-            {Intl.NumberFormat().format(countryData.new_cases)}
+            {countryData.new_cases ? (
+              <CountUp
+                separator=","
+                format="d"
+                duration="1"
+                end={countryData.new_cases}
+              />
+            ) : null}
           </h4>
           <p className="footer-item-title">new cases</p>
         </li>
