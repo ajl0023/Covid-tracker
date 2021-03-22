@@ -54,7 +54,7 @@ html {
   gap: 9px;
   padding: 15px;
   top: 0;
-  font-size: 3vw;
+  font-size: 2vw;
   width: 100vw;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -71,7 +71,7 @@ html {
 }
 
 .title-container .cov-image-container {
-  width: 5%;
+  width: 4%;
   height: auto;
 }
 
@@ -382,6 +382,22 @@ html {
   }
   .footer-item-desc {
     font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .title-container {
+    font-size: 7vw !important;
+  }
+  .title-container .title {
+    font-size: 7vw !important;
+  }
+  .cov-image-container {
+    width: 10% !important;
+    height: auto;
+  }
+  .cov-image-container .cov-image {
+    fill: white;
   }
 }
 /*# sourceMappingURL=App.css.map */

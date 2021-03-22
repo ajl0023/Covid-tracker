@@ -43,7 +43,7 @@ html {
   gap: 9px;
   padding: 15px;
   top: 0;
-  font-size: 3vw;
+  font-size: 2vw;
   width: 100vw;
   align-items: center;
   background-color: black;
@@ -54,7 +54,7 @@ html {
     height: fit-content;
   }
   .cov-image-container {
-    width: 5%;
+    width: 4%;
     height: auto;
 
     .cov-image {
@@ -265,16 +265,33 @@ html {
   .tracker-container {
     .counter-container {
       font-size: 4.5vw;
-      
     }
-
   }
 }
+@media only screen and (max-width: 580px) {
+}
+
 @media only screen and (max-width: 1140px) {
   .card-title {
     font-size: 13px;
   }
   .footer-item-desc {
     font-size: 13px;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .title-container {
+    font-size: 7vw !important;
+    .title {
+      font-size: 7vw !important;
+    }
+  }
+  .cov-image-container {
+    width: 10% !important;
+    height: auto;
+
+    .cov-image {
+      fill: white;
+    }
   }
 }
