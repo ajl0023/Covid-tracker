@@ -14,7 +14,7 @@ const Tracker = ({ countryData, getCountry, render }) => {
   return (
     <div className="tracker-container">
       <div className="counter-container">
-        <header className="tracker-item-title">Total Cases: </header>
+        <header className="tracker-item-title">Total Cases:</header>
         {countryData.total_cases ? (
           <CountUp
             separator=","
@@ -25,7 +25,7 @@ const Tracker = ({ countryData, getCountry, render }) => {
         ) : null}
       </div>
       <div className="counter-container">
-        <header className="tracker-item-title">Total Deaths: {"  "}</header>
+        <header className="tracker-item-title">Total Deaths:</header>
         {countryData.total_deaths ? (
           <CountUp
             separator=","
@@ -36,7 +36,7 @@ const Tracker = ({ countryData, getCountry, render }) => {
         ) : null}
       </div>
       <div onClick={handleClick} className="counter-container">
-        <header className="tracker-item-title">Total Vaccinated: {"  "}</header>
+        <header className="tracker-item-title">Total Vaccinated:</header>
         {countryData.total_vaccinations ? (
           <CountUp
             separator=","

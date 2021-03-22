@@ -9,21 +9,26 @@
 }
 html {
   background-color: #161a1d;
+  font-size: 100%;
 }
 .wrapper {
   display: flex;
-  max-width: 100vw;
-  width: 100%;
+  width: 100vw;
+
   flex-direction: column;
   height: 100vh;
   background-color: #161a1d;
 }
-.title {
-  font-family: "Roboto Mono", monospace;
-  color: white;
-}
+
 .tracker-item-title {
+  white-space: unset;
+
+  word-break: normal;
+
   font-weight: 300;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
   border-bottom: 0.5px solid #dadce0;
 }
 .flag-image-container {
@@ -38,18 +43,26 @@ html {
   gap: 9px;
   padding: 15px;
   top: 0;
-  font-size: 35px;
-  width: 100%;
+  font-size: 3vw;
+  width: 100vw;
   align-items: center;
   background-color: black;
-}
-.cov-image-container {
-  width: 50px;
-  height: 50px;
-  .cov-image {
-    fill: white;
+  .title {
+    font-family: "Roboto Mono", monospace;
+    color: white;
+
+    height: fit-content;
+  }
+  .cov-image-container {
+    width: 5%;
+    height: auto;
+
+    .cov-image {
+      fill: white;
+    }
   }
 }
+
 .info-title-container {
   padding: 8px;
   background-color: white;
@@ -170,40 +183,42 @@ html {
   font-weight: 700;
   width: 100%;
   max-width: 600px;
-  height: 500px;
-
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   display: flex;
   flex-direction: column;
   border: none;
   border-radius: 15px;
-  position: absolute;
-  top: 50%; /* position the top  edge of the element at the middle of the parent */
-  left: 50%; /* position the left edge of the element at the middle of the parent */
-
+  position: fixed;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 .map-wrapper {
   display: flex;
   flex: 4;
+  padding: 15px;
   background-color: #161a1d;
   flex-direction: column;
   align-items: center;
 }
 .counter-container {
-  font-size: 2vh;
   display: flex;
+  font-size: 2vw;
   flex-direction: column;
+  justify-content: flex-end;
+
   align-items: center;
 }
 .tracker-container {
-  display: flex;
+  display: grid;
   color: white;
+  gap: 8px;
+
+  grid-template-columns: 1fr 1fr 1fr;
   padding-top: 30px;
-  max-width: 1200px;
+  max-width: 90vw;
   width: 100%;
   font-family: "Roboto Mono", monospace;
-  justify-content: space-around;
 }
 .map-container {
   max-width: 1100px;
@@ -246,12 +261,16 @@ html {
 .tooltip {
   font-family: "Roboto Mono", monospace;
 }
-@media only screen and (max-width: 658px) {
+@media only screen and (max-width: 563px) {
+  .tracker-container {
+    .counter-container {
+      font-size: 4.5vw;
+      
+    }
+
+  }
 }
 @media only screen and (max-width: 1140px) {
-  .counter-container {
-    font-size: 1.5vh;
-  }
   .card-title {
     font-size: 13px;
   }
