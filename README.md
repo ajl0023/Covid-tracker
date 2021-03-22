@@ -1,3 +1,5 @@
+Demo: https://ajl0023.github.io/Covid-tracker/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
