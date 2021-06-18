@@ -1,5 +1,7 @@
 Demo: https://ajl0023.github.io/Covid-tracker/
 
+The covid-tracker application fetches data from Our World in Data and Johns Hopkins University and was created for educational purposes. The tracker uses d3 for interactive data visualizations to demonstrate flucuations of various covid-19 statistics. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
